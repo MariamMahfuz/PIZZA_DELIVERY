@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'phonenumber_field',
     'rest_framework_simplejwt',
+    'djoser'
 
 ]
 AUTH_USER_MODEL='authentication.User'
@@ -47,7 +48,8 @@ REST_FRAMEWORK={
     )
 }
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'AUTH_HEADER_TYPES':('Bearer'),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=50),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     'BLACKLIST_AFTER_ROTATION': False,
 }

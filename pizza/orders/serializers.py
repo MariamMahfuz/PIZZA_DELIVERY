@@ -7,7 +7,7 @@ class OrderCreationSerializer(serializers.ModelSerializer):
     quantity = serializers.IntegerField()
     class Meta:
         model=Order
-        fields=['size','order_status','quantity']
+        fields=['id', 'size','order_status','quantity']
 
 
 class OrderDetailSerializer(serializers.ModelSerializer):
@@ -18,4 +18,10 @@ class OrderDetailSerializer(serializers.ModelSerializer):
     updated_at = serializers.DateTimeField()
     class Meta:
         model=Order
-        fields=['size','order_status','quantity','created_at','updated_at']
+        fields=['id','size','order_status','quantity','created_at','updated_at']
+
+class OrderStatusUpdateSerializer(serializers.ModelSerializer):
+    order_status = serializers.CharField(max_length=20)
+    class Meta:
+        model=Order
+        fields=['order_status']
